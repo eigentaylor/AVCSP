@@ -384,6 +384,29 @@
             text-decoration: underline;
         }
 
+        .election-notes {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--accent-yellow);
+            border-left: 4px solid var(--accent-yellow);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .election-notes h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .election-notes ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .election-notes li {
+            margin-bottom: 0.5rem;
+        }
+
         .methodology {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -483,6 +506,10 @@
             </div>
         </div>
 
+        <div id="notes-container">
+            <!-- Election notes will be populated here -->
+        </div>
+
         <div id="overview-container">
             <!-- Overview will be populated here -->
         </div>
@@ -516,16 +543,52 @@
 
     <script>
         let allData = null;
+        let electionNotes = null;
 
         const barColors = [
             '#818cf8', '#34d399', '#fbbf24', '#f472b6',
             '#22d3d8', '#a78bfa', '#fb923c', '#4ade80'
         ];
 
+        // URL parameter handling
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                election: params.get('election'),
+                candidate: params.get('candidate')
+            };
+        }
+
+        function updateUrl(electionId, candidateProfile) {
+            const params = new URLSearchParams();
+            if (electionId) {
+                params.set('election', electionId);
+            }
+            if (candidateProfile) {
+                params.set('candidate', candidateProfile);
+            }
+            const newUrl = params.toString() 
+                ? `${window.location.pathname}?${params.toString()}`
+                : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
+
         async function loadData() {
             try {
-                const response = await fetch('output/UBs/all_ravub_results.json');
-                allData = await response.json();
+                const [dataResponse, notesResponse] = await Promise.all([
+                    fetch('output/UBs/all_ravub_results.json'),
+                    fetch('election_notes.json').catch(() => null)
+                ]);
+                
+                allData = await dataResponse.json();
+                
+                if (notesResponse && notesResponse.ok) {
+                    const notesData = await notesResponse.json();
+                    electionNotes = notesData.notes || {};
+                } else {
+                    electionNotes = {};
+                }
+                
                 populateElectionSelect();
             } catch (error) {
                 document.getElementById('results-container').innerHTML = `
@@ -535,6 +598,27 @@
                     </div>
                 `;
             }
+        }
+
+        function renderNotes(electionId) {
+            const container = document.getElementById('notes-container');
+            
+            if (!electionId || !electionNotes || !electionNotes[electionId] || electionNotes[electionId].length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const notes = electionNotes[electionId];
+            const notesList = notes.map(note => `<li>${note}</li>`).join('');
+
+            container.innerHTML = `
+                <div class="election-notes">
+                    <h3>📝 Notes</h3>
+                    <ul>
+                        ${notesList}
+                    </ul>
+                </div>
+            `;
         }
 
         function populateElectionSelect() {
@@ -549,18 +633,28 @@
                 select.appendChild(option);
             }
 
-            // Default to first election if available
-            if (electionIds.length > 0) {
-                const firstElectionId = electionIds[0];
-                select.value = firstElectionId;
-                populateCandidateSelect(firstElectionId);
-                renderOverview(firstElectionId);
+            // Check for URL parameters first
+            const urlParams = getUrlParams();
+            const targetElection = urlParams.election && allData[urlParams.election] 
+                ? urlParams.election 
+                : (electionIds.length > 0 ? electionIds[0] : null);
 
-                // Auto-select first candidate
-                const firstCandidate = allData[firstElectionId].major_candidates[0];
-                if (firstCandidate) {
-                    document.getElementById('candidate-select').value = firstCandidate;
-                    renderResults(firstElectionId, firstCandidate);
+            if (targetElection) {
+                select.value = targetElection;
+                populateCandidateSelect(targetElection);
+                renderNotes(targetElection);
+                renderOverview(targetElection);
+
+                // Check for candidate in URL, otherwise use first candidate
+                const election = allData[targetElection];
+                const targetCandidate = urlParams.candidate && election.major_candidates.includes(urlParams.candidate)
+                    ? urlParams.candidate
+                    : election.major_candidates[0];
+
+                if (targetCandidate) {
+                    document.getElementById('candidate-select').value = targetCandidate;
+                    renderResults(targetElection, targetCandidate);
+                    updateUrl(targetElection, targetCandidate);
                 }
             } else {
                 document.getElementById('results-container').innerHTML = `
@@ -602,6 +696,7 @@
             candidateSelect.value = candidate;
             const electionId = document.getElementById('election-select').value;
             renderResults(electionId, candidate);
+            updateUrl(electionId, candidate);
         }
 
         function renderOverview(electionId) {
@@ -797,6 +892,7 @@
         document.getElementById('election-select').addEventListener('change', (e) => {
             const electionId = e.target.value;
             populateCandidateSelect(electionId, true);
+            renderNotes(electionId);
             renderOverview(electionId);
 
             // Auto-display first candidate's results
@@ -804,8 +900,10 @@
                 const firstCandidate = allData[electionId].major_candidates[0];
                 if (firstCandidate) {
                     renderResults(electionId, firstCandidate);
+                    updateUrl(electionId, firstCandidate);
                 }
             } else {
+                document.getElementById('notes-container').innerHTML = '';
                 document.getElementById('overview-container').innerHTML = '';
                 document.getElementById('results-container').innerHTML = `
                     <div class="results-panel">
@@ -814,12 +912,15 @@
                         </p>
                     </div>
                 `;
+                updateUrl(null, null);
             }
         });
 
         document.getElementById('candidate-select').addEventListener('change', (e) => {
             const electionId = document.getElementById('election-select').value;
-            renderResults(electionId, e.target.value);
+            const candidate = e.target.value;
+            renderResults(electionId, candidate);
+            updateUrl(electionId, candidate);
         });
 
         // Initialize

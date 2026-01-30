@@ -1,0 +1,15 @@
+{
+    "notes": {
+        "alaska_2022": [
+            "This was a special election to fill the seat vacated by Don Young.",
+            "Notable for its widely publicized Condorcet failure. Begich beat every other candidate head-to-head but was eliminated first in IRV."
+        ],
+        "mn_ward2_2021": [
+            "This election featured a Condorcet cycle among the top candidates.",
+            "The cycle was: Worlobah > Arab > Gordon > Worlobah."
+        ],
+        "nyc_2025_mayor": [
+            "Add notes about this election here."
+        ]
+    }
+}
