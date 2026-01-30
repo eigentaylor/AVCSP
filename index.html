@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAVUB Analysis - Ranked AV Upper Bound</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --border-color: #30363d;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --accent-yellow: #d29922;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .selectors {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .selector-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .selector-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        select:hover {
+            border-color: var(--accent-blue);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+        }
+
+        .results-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .election-info {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .election-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .election-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .election-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .profile-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .profile-result {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .profile-result.win {
+            background-color: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .profile-result.lose {
+            background-color: rgba(248, 81, 73, 0.2);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+        }
+
+        .votes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .votes-table th,
+        .votes-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .votes-table th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .votes-table tr:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .votes-table .winner-row {
+            background-color: rgba(63, 185, 80, 0.1);
+        }
+
+        .votes-table .winner-row:hover {
+            background-color: rgba(63, 185, 80, 0.15);
+        }
+
+        .vote-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vote-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .margin-info {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: var(--bg-tertiary);
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+
+        .margin-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .margin-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .margin-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .margin-value.positive {
+            color: var(--accent-green);
+        }
+
+        .margin-value.negative {
+            color: var(--accent-red);
+        }
+
+        .chart-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .chart-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .overview-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .overview-panel h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .overview-table th,
+        .overview-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .overview-table th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .overview-table tr:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .range-bar-container {
+            width: 100%;
+            height: 20px;
+            background-color: var(--bg-tertiary);
+            border-radius: 4px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .range-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px;
+            opacity: 0.8;
+        }
+
+        .range-bar.min {
+            background-color: var(--accent-yellow);
+        }
+
+        .range-bar.max {
+            background-color: var(--accent-blue);
+        }
+
+        .range-bar-segment {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-badge.wins {
+            background-color: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+
+        .status-badge.loses {
+            background-color: rgba(248, 81, 73, 0.2);
+            color: var(--accent-red);
+        }
+
+        .clickable-candidate {
+            cursor: pointer;
+            color: var(--accent-blue);
+            transition: color 0.2s;
+        }
+
+        .clickable-candidate:hover {
+            color: var(--accent-purple);
+            text-decoration: underline;
+        }
+
+        .methodology {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .methodology h3 {
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+        }
+
+        .methodology p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .methodology ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .methodology li {
+            margin-bottom: 0.5rem;
+        }
+
+        .methodology code {
+            background-color: var(--bg-tertiary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 2rem 0;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .selectors {
+                flex-direction: column;
+            }
+
+            .margin-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>RAVUB Analysis</h1>
+            <p class="subtitle">Ranked AV Upper Bound - Deducing Possible Approval Outcomes from Ranked Ballots</p>
+        </header>
+
+        <div class="selectors">
+            <div class="selector-group">
+                <label for="election-select">Select Election</label>
+                <select id="election-select">
+                    <option value="">Loading elections...</option>
+                </select>
+            </div>
+            <div class="selector-group">
+                <label for="candidate-select">Select Candidate Profile</label>
+                <select id="candidate-select">
+                    <option value="">Select an election first</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="overview-container">
+            <!-- Overview will be populated here -->
+        </div>
+
+        <div id="results-container">
+            <div class="loading">Loading data...</div>
+        </div>
+
+        <div class="methodology">
+            <h3>📊 Methodology</h3>
+            <p>The <strong>Ranked AV Upper Bound (RAVUB)</strong> provides an upper bound on a candidate's performance
+                under Approval Voting, derived from ranked ballot data.</p>
+            <p>For each candidate X's profile:</p>
+            <ul>
+                <li>If a voter ranks X on their ballot and X is implicitly ranked above some other major candidate, the
+                    voter approves X and all candidates ranked above X.</li>
+                <li>Otherwise, the voter only approves their top-ranked candidate.</li>
+            </ul>
+            <p>This construction maximizes X's chances of winning, giving insight into whether X could possibly win
+                under Approval Voting with sincere strategies.</p>
+            <p><strong>Key insight:</strong> If a candidate does not win under their own RAVUB profile, they cannot win
+                under any sincere Approval Voting scenario.</p>
+        </div>
+
+        <footer>
+            <p>Data and analysis by <a href="https://github.com/eigentaylor">eigentaylor</a></p>
+            <p>Based on Steven Brams' <em>Mathematics and Democracy</em> (2008)</p>
+            <p>Errors very likely. Take results with a haelthy grain of salt.</p>
+        </footer>
+    </div>
+
+    <script>
+        let allData = null;
+
+        const barColors = [
+            '#818cf8', '#34d399', '#fbbf24', '#f472b6',
+            '#22d3d8', '#a78bfa', '#fb923c', '#4ade80'
+        ];
+
+        async function loadData() {
+            try {
+                const response = await fetch('output/UBs/all_ravub_results.json');
+                allData = await response.json();
+                populateElectionSelect();
+            } catch (error) {
+                document.getElementById('results-container').innerHTML = `
+                    <div class="results-panel">
+                        <p style="color: var(--accent-red);">Error loading data. Please ensure the analysis has been run.</p>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Run <code>python ravub_calculator.py</code> to generate the data.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function populateElectionSelect() {
+            const select = document.getElementById('election-select');
+            select.innerHTML = '<option value="">Select an election...</option>';
+
+            const electionIds = Object.keys(allData);
+            for (const [id, data] of Object.entries(allData)) {
+                const option = document.createElement('option');
+                option.value = id;
+                option.textContent = data.election_name;
+                select.appendChild(option);
+            }
+
+            // Default to first election if available
+            if (electionIds.length > 0) {
+                const firstElectionId = electionIds[0];
+                select.value = firstElectionId;
+                populateCandidateSelect(firstElectionId);
+                renderOverview(firstElectionId);
+
+                // Auto-select first candidate
+                const firstCandidate = allData[firstElectionId].major_candidates[0];
+                if (firstCandidate) {
+                    document.getElementById('candidate-select').value = firstCandidate;
+                    renderResults(firstElectionId, firstCandidate);
+                }
+            } else {
+                document.getElementById('results-container').innerHTML = `
+                    <div class="results-panel">
+                        <p style="color: var(--text-secondary); text-align: center;">
+                            Select an election and candidate to view their RAVUB profile results.
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function populateCandidateSelect(electionId, autoSelectFirst = false) {
+            const select = document.getElementById('candidate-select');
+            select.innerHTML = '<option value="">Select a candidate...</option>';
+
+            if (!electionId || !allData[electionId]) return;
+
+            const election = allData[electionId];
+            for (const candidate of election.major_candidates) {
+                const option = document.createElement('option');
+                option.value = candidate;
+                option.textContent = candidate;
+                select.appendChild(option);
+            }
+
+            // Auto-select first candidate if requested
+            if (autoSelectFirst && election.major_candidates.length > 0) {
+                select.value = election.major_candidates[0];
+            }
+        }
+
+        function formatNumber(num) {
+            return new Intl.NumberFormat().format(num);
+        }
+
+        function selectCandidate(candidate) {
+            const candidateSelect = document.getElementById('candidate-select');
+            candidateSelect.value = candidate;
+            const electionId = document.getElementById('election-select').value;
+            renderResults(electionId, candidate);
+        }
+
+        function renderOverview(electionId) {
+            if (!electionId || !allData[electionId]) {
+                document.getElementById('overview-container').innerHTML = '';
+                return;
+            }
+
+            const election = allData[electionId];
+            const candidates = election.major_candidates;
+            const firstChoiceCounts = election.first_choice_counts || {};
+            
+            // Collect candidate data and sort by RAVUB (maximum) descending
+            const candidateData = candidates.map(candidate => {
+                const profile = election.profiles[candidate];
+                const firstChoice = firstChoiceCounts[candidate] || { votes: 0, percentage: 0 };
+                const ravubVotes = profile ? profile.approval_votes.find(v => v.candidate === candidate) : null;
+                const ravub = ravubVotes ? ravubVotes.votes : 0;
+                const ravubPct = ravubVotes ? ravubVotes.percentage : 0;
+                const winsProfile = profile ? profile.wins_own_profile : false;
+                
+                return {
+                    candidate,
+                    firstChoice,
+                    ravub,
+                    ravubPct,
+                    winsProfile
+                };
+            }).sort((a, b) => b.ravub - a.ravub);
+            
+            // Calculate max RAVUB for scaling the bars
+            const maxRavub = candidateData.length > 0 ? candidateData[0].ravub : 0;
+
+            const rows = candidateData.map((data, i) => {
+                const { candidate, firstChoice, ravub, ravubPct, winsProfile } = data;
+                const barColor = barColors[i % barColors.length];
+                
+                // Calculate bar positions (as percentage of max RAVUB)
+                const minBarWidth = (firstChoice.votes / maxRavub) * 100;
+                const maxBarWidth = (ravub / maxRavub) * 100;
+
+                return `
+                    <tr>
+                        <td>
+                            <span class="clickable-candidate" onclick="selectCandidate('${candidate.replace(/'/g, "\\'")}')">${candidate}</span>
+                        </td>
+                        <td>${formatNumber(firstChoice.votes)} (${firstChoice.percentage}%)</td>
+                        <td>${formatNumber(ravub)} (${ravubPct}%)</td>
+                        <td>
+                            <div class="range-bar-container">
+                                <div class="range-bar-segment" style="left: 0; width: ${minBarWidth}%; background-color: ${barColor}; opacity: 1;"></div>
+                                <div class="range-bar-segment" style="left: ${minBarWidth}%; width: ${maxBarWidth - minBarWidth}%; background-color: ${barColor}; opacity: 0.4;"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge ${winsProfile ? 'wins' : 'loses'}">
+                                ${winsProfile ? '✓ Wins' : '✗ Loses'}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            const html = `
+                <div class="overview-panel">
+                    <h3>📈 Candidate Overview</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Vote range from first-choice (minimum) to RAVUB (maximum possible under Approval Voting).
+                        <br><em>Click a candidate name to view their detailed profile.</em>
+                    </p>
+                    <table class="overview-table">
+                        <thead>
+                            <tr>
+                                <th>Candidate</th>
+                                <th>First Choice (Min)</th>
+                                <th>RAVUB (Max)</th>
+                                <th>Range</th>
+                                <th>Wins Own Profile?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            document.getElementById('overview-container').innerHTML = html;
+        }
+
+        function renderResults(electionId, candidateProfile) {
+            if (!electionId || !candidateProfile || !allData[electionId]) {
+                return;
+            }
+
+            const election = allData[electionId];
+            const profile = election.profiles[candidateProfile];
+
+            if (!profile) return;
+
+            const winsProfile = profile.wins_own_profile;
+            const maxVotes = Math.max(...profile.approval_votes.map(v => v.votes));
+
+            let tableRows = profile.approval_votes.map((v, i) => {
+                const isWinner = v.candidate === profile.winner;
+                const barWidth = (v.votes / maxVotes) * 100;
+                const barColor = barColors[i % barColors.length];
+                const isMajorCandidate = election.major_candidates.includes(v.candidate);
+
+                return `
+                    <tr class="${isWinner ? 'winner-row' : ''}">
+                        <td>
+                            ${isWinner ? '👑 ' : ''}${isMajorCandidate 
+                                ? `<span class="clickable-candidate" onclick="selectCandidate('${v.candidate.replace(/'/g, "\\'")}')">${v.candidate}</span>`
+                                : v.candidate}
+                        </td>
+                        <td>${formatNumber(v.votes)}</td>
+                        <td>${v.percentage.toFixed(2)}%</td>
+                        <td>
+                            <div class="vote-bar-container">
+                                <div class="vote-bar" style="width: ${barWidth}%; background-color: ${barColor}"></div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            const safeCandidate = candidateProfile.replace(/ /g, '_').replace(/,/g, '').replace(/\./g, '');
+            const chartPath = `output/UBs/${electionId}_${safeCandidate}_ravub.png`;
+
+            const html = `
+                <div class="results-panel">
+                    <div class="election-info">
+                        <h2>${election.election_name}</h2>
+                        <div class="election-meta">
+                            <span>📅 ${election.date}</span>
+                            <span>🗳️ ${formatNumber(election.total_ballots)} total ballots</span>
+                            <span>🏆 IRV Winner: ${election.irv_winner}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-header">
+                        <div class="profile-title">RAVUB Profile: ${candidateProfile}</div>
+                        <div class="profile-result ${winsProfile ? 'win' : 'lose'}">
+                            ${winsProfile ? '✓ WINS own profile' : `✗ LOSES to ${profile.winner}`}
+                        </div>
+                    </div>
+                    
+                    <table class="votes-table">
+                        <thead>
+                            <tr>
+                                <th>Candidate</th>
+                                <th>Approval Votes</th>
+                                <th>Percentage</th>
+                                <th>Distribution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                    </table>
+                    
+                    <div class="margin-info">
+                        <div class="margin-stat">
+                            <span class="margin-label">Winner</span>
+                            <span class="margin-value">${profile.winner}</span>
+                        </div>
+                        <div class="margin-stat">
+                            <span class="margin-label">Margin vs ${profile.margin_opponent}</span>
+                            <span class="margin-value ${profile.margin >= 0 ? 'positive' : 'negative'}">
+                                ${profile.margin >= 0 ? '+' : ''}${formatNumber(profile.margin)} votes
+                            </span>
+                        </div>
+                        <div class="margin-stat">
+                            <span class="margin-label">Margin %</span>
+                            <span class="margin-value ${profile.margin >= 0 ? 'positive' : 'negative'}">
+                                ${profile.margin_percentage >= 0 ? '+' : ''}${profile.margin_percentage.toFixed(2)}%
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <img src="${chartPath}" alt="RAVUB Chart for ${candidateProfile}" 
+                             onerror="this.style.display='none'" />
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('results-container').innerHTML = html;
+        }
+
+        // Event listeners
+        document.getElementById('election-select').addEventListener('change', (e) => {
+            const electionId = e.target.value;
+            populateCandidateSelect(electionId, true);
+            renderOverview(electionId);
+
+            // Auto-display first candidate's results
+            if (electionId && allData[electionId]) {
+                const firstCandidate = allData[electionId].major_candidates[0];
+                if (firstCandidate) {
+                    renderResults(electionId, firstCandidate);
+                }
+            } else {
+                document.getElementById('overview-container').innerHTML = '';
+                document.getElementById('results-container').innerHTML = `
+                    <div class="results-panel">
+                        <p style="color: var(--text-secondary); text-align: center;">
+                            Select a candidate to view their RAVUB profile results.
+                        </p>
+                    </div>
+                `;
+            }
+        });
+
+        document.getElementById('candidate-select').addEventListener('change', (e) => {
+            const electionId = document.getElementById('election-select').value;
+            renderResults(electionId, e.target.value);
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+
+</html>

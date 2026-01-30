@@ -1,0 +1,1137 @@
+{
+  "alaska_2022": {
+    "election_id": "alaska_2022",
+    "election_name": "Alaska 2022 Special General Election",
+    "date": "2022-08-16",
+    "description": "US House special election to fill the seat vacated by Don Young",
+    "method": "Ranked AV Upper Bound (RAVUB)",
+    "total_ballots": 192289,
+    "valid_ballots": 189453,
+    "empty_ballots": 2836,
+    "irv_winner": "Peltola, Mary S.",
+    "ballot_stats": {
+      "total_ballots": 192289,
+      "valid_ballots": 189453,
+      "empty_ballots": 2836,
+      "overvotes_corrected": 48,
+      "undervotes": 0,
+      "write_ins_encountered": 54
+    },
+    "major_candidates": [
+      "Peltola, Mary S.",
+      "Begich, Nick",
+      "Palin, Sarah"
+    ],
+    "first_choice_counts": {
+      "Peltola, Mary S.": {
+        "votes": 74867,
+        "percentage": 38.93
+      },
+      "Begich, Nick": {
+        "votes": 52844,
+        "percentage": 27.48
+      },
+      "Palin, Sarah": {
+        "votes": 58620,
+        "percentage": 30.49
+      }
+    },
+    "profiles": {
+      "Peltola, Mary S.": {
+        "profile_candidate": "Peltola, Mary S.",
+        "winner": "Peltola, Mary S.",
+        "wins_own_profile": true,
+        "margin": 36361,
+        "margin_percentage": 18.91,
+        "margin_opponent": "Palin, Sarah",
+        "approval_votes": [
+          {
+            "candidate": "Peltola, Mary S.",
+            "votes": 95051,
+            "percentage": 49.43
+          },
+          {
+            "candidate": "Palin, Sarah",
+            "votes": 58690,
+            "percentage": 30.52
+          },
+          {
+            "candidate": "Begich, Nick",
+            "votes": 53260,
+            "percentage": 27.7
+          }
+        ]
+      },
+      "Begich, Nick": {
+        "profile_candidate": "Begich, Nick",
+        "winner": "Begich, Nick",
+        "wins_own_profile": true,
+        "margin": 59957,
+        "margin_percentage": 31.18,
+        "margin_opponent": "Peltola, Mary S.",
+        "approval_votes": [
+          {
+            "candidate": "Begich, Nick",
+            "votes": 135457,
+            "percentage": 70.44
+          },
+          {
+            "candidate": "Peltola, Mary S.",
+            "votes": 75500,
+            "percentage": 39.26
+          },
+          {
+            "candidate": "Palin, Sarah",
+            "votes": 58873,
+            "percentage": 30.62
+          }
+        ]
+      },
+      "Palin, Sarah": {
+        "profile_candidate": "Palin, Sarah",
+        "winner": "Palin, Sarah",
+        "wins_own_profile": true,
+        "margin": 15776,
+        "margin_percentage": 8.2,
+        "margin_opponent": "Peltola, Mary S.",
+        "approval_votes": [
+          {
+            "candidate": "Palin, Sarah",
+            "votes": 90773,
+            "percentage": 47.21
+          },
+          {
+            "candidate": "Peltola, Mary S.",
+            "votes": 74997,
+            "percentage": 39.0
+          },
+          {
+            "candidate": "Begich, Nick",
+            "votes": 53253,
+            "percentage": 27.69
+          }
+        ]
+      }
+    }
+  },
+  "mn_ward2_2021": {
+    "election_id": "mn_ward2_2021",
+    "election_name": "Minneapolis Ward 2 City Council 2021",
+    "date": "2021-11-02",
+    "description": "Minneapolis City Council Ward 2 election",
+    "method": "Ranked AV Upper Bound (RAVUB)",
+    "total_ballots": 9799,
+    "valid_ballots": 9531,
+    "empty_ballots": 268,
+    "irv_winner": "Robin Wonsley Worlobah",
+    "ballot_stats": {
+      "total_ballots": 9799,
+      "valid_ballots": 9531,
+      "empty_ballots": 268,
+      "overvotes_corrected": 54,
+      "undervotes": 0,
+      "write_ins_encountered": 0
+    },
+    "major_candidates": [
+      "Robin Wonsley Worlobah",
+      "Cam Gordon",
+      "Yusra Arab",
+      "Tom Anderson",
+      "Guy T Gaskin"
+    ],
+    "first_choice_counts": {
+      "Robin Wonsley Worlobah": {
+        "votes": 2761,
+        "percentage": 28.18
+      },
+      "Cam Gordon": {
+        "votes": 2507,
+        "percentage": 25.58
+      },
+      "Yusra Arab": {
+        "votes": 2716,
+        "percentage": 27.72
+      },
+      "Tom Anderson": {
+        "votes": 980,
+        "percentage": 10.0
+      },
+      "Guy T Gaskin": {
+        "votes": 546,
+        "percentage": 5.57
+      }
+    },
+    "profiles": {
+      "Robin Wonsley Worlobah": {
+        "profile_candidate": "Robin Wonsley Worlobah",
+        "winner": "Robin Wonsley Worlobah",
+        "wins_own_profile": true,
+        "margin": 2149,
+        "margin_percentage": 21.93,
+        "margin_opponent": "Yusra Arab",
+        "approval_votes": [
+          {
+            "candidate": "Robin Wonsley Worlobah",
+            "votes": 5150,
+            "percentage": 52.56
+          },
+          {
+            "candidate": "Yusra Arab",
+            "votes": 3001,
+            "percentage": 30.63
+          },
+          {
+            "candidate": "Cam Gordon",
+            "votes": 2672,
+            "percentage": 27.27
+          },
+          {
+            "candidate": "Tom Anderson",
+            "votes": 1264,
+            "percentage": 12.9
+          },
+          {
+            "candidate": "Guy T Gaskin",
+            "votes": 554,
+            "percentage": 5.65
+          }
+        ]
+      },
+      "Cam Gordon": {
+        "profile_candidate": "Cam Gordon",
+        "winner": "Cam Gordon",
+        "wins_own_profile": true,
+        "margin": 2341,
+        "margin_percentage": 23.89,
+        "margin_opponent": "Yusra Arab",
+        "approval_votes": [
+          {
+            "candidate": "Cam Gordon",
+            "votes": 5509,
+            "percentage": 56.22
+          },
+          {
+            "candidate": "Yusra Arab",
+            "votes": 3168,
+            "percentage": 32.33
+          },
+          {
+            "candidate": "Robin Wonsley Worlobah",
+            "votes": 2951,
+            "percentage": 30.12
+          },
+          {
+            "candidate": "Tom Anderson",
+            "votes": 1304,
+            "percentage": 13.31
+          },
+          {
+            "candidate": "Guy T Gaskin",
+            "votes": 574,
+            "percentage": 5.86
+          }
+        ]
+      },
+      "Yusra Arab": {
+        "profile_candidate": "Yusra Arab",
+        "winner": "Yusra Arab",
+        "wins_own_profile": true,
+        "margin": 2768,
+        "margin_percentage": 28.25,
+        "margin_opponent": "Robin Wonsley Worlobah",
+        "approval_votes": [
+          {
+            "candidate": "Yusra Arab",
+            "votes": 5906,
+            "percentage": 60.27
+          },
+          {
+            "candidate": "Robin Wonsley Worlobah",
+            "votes": 3138,
+            "percentage": 32.02
+          },
+          {
+            "candidate": "Cam Gordon",
+            "votes": 3019,
+            "percentage": 30.81
+          },
+          {
+            "candidate": "Tom Anderson",
+            "votes": 1222,
+            "percentage": 12.47
+          },
+          {
+            "candidate": "Guy T Gaskin",
+            "votes": 565,
+            "percentage": 5.77
+          }
+        ]
+      },
+      "Tom Anderson": {
+        "profile_candidate": "Tom Anderson",
+        "winner": "Tom Anderson",
+        "wins_own_profile": true,
+        "margin": 357,
+        "margin_percentage": 3.64,
+        "margin_opponent": "Yusra Arab",
+        "approval_votes": [
+          {
+            "candidate": "Tom Anderson",
+            "votes": 3633,
+            "percentage": 37.08
+          },
+          {
+            "candidate": "Yusra Arab",
+            "votes": 3276,
+            "percentage": 33.43
+          },
+          {
+            "candidate": "Robin Wonsley Worlobah",
+            "votes": 3093,
+            "percentage": 31.56
+          },
+          {
+            "candidate": "Cam Gordon",
+            "votes": 2809,
+            "percentage": 28.67
+          },
+          {
+            "candidate": "Guy T Gaskin",
+            "votes": 584,
+            "percentage": 5.96
+          }
+        ]
+      },
+      "Guy T Gaskin": {
+        "profile_candidate": "Guy T Gaskin",
+        "winner": "Robin Wonsley Worlobah",
+        "wins_own_profile": false,
+        "margin": -1900,
+        "margin_percentage": -19.39,
+        "margin_opponent": "Robin Wonsley Worlobah",
+        "approval_votes": [
+          {
+            "candidate": "Robin Wonsley Worlobah",
+            "votes": 2775,
+            "percentage": 28.32
+          },
+          {
+            "candidate": "Yusra Arab",
+            "votes": 2758,
+            "percentage": 28.15
+          },
+          {
+            "candidate": "Cam Gordon",
+            "votes": 2529,
+            "percentage": 25.81
+          },
+          {
+            "candidate": "Tom Anderson",
+            "votes": 1046,
+            "percentage": 10.67
+          },
+          {
+            "candidate": "Guy T Gaskin",
+            "votes": 875,
+            "percentage": 8.93
+          }
+        ]
+      }
+    }
+  },
+  "nyc_2025_mayor": {
+    "election_id": "nyc_2025_mayor",
+    "election_name": "New York City 2025 Democratic Mayoral Primary",
+    "date": "2025-06-24",
+    "description": "NYC Democratic primary for Mayor",
+    "method": "Ranked AV Upper Bound (RAVUB)",
+    "total_ballots": 724838,
+    "valid_ballots": 724838,
+    "empty_ballots": 0,
+    "irv_winner": "Zohran Kwame Mamdani",
+    "ballot_stats": {
+      "total_ballots": 724838,
+      "valid_ballots": 724838,
+      "empty_ballots": 0,
+      "overvotes_corrected": 0,
+      "undervotes": 0,
+      "write_ins_encountered": 0
+    },
+    "major_candidates": [
+      "Zohran Kwame Mamdani",
+      "Andrew M. Cuomo",
+      "Brad Lander",
+      "Adrienne E. Adams",
+      "Scott M. Stringer",
+      "Zellnor Myrie",
+      "Michael Blake",
+      "Whitney R. Tilson",
+      "Jessica Ramos",
+      "Selma K. Bartholomew",
+      "Paperboy Love Prince"
+    ],
+    "first_choice_counts": {
+      "Zohran Kwame Mamdani": {
+        "votes": 332804,
+        "percentage": 45.91
+      },
+      "Andrew M. Cuomo": {
+        "votes": 265148,
+        "percentage": 36.58
+      },
+      "Brad Lander": {
+        "votes": 63841,
+        "percentage": 8.81
+      },
+      "Adrienne E. Adams": {
+        "votes": 31536,
+        "percentage": 4.35
+      },
+      "Scott M. Stringer": {
+        "votes": 9883,
+        "percentage": 1.36
+      },
+      "Zellnor Myrie": {
+        "votes": 7475,
+        "percentage": 1.03
+      },
+      "Michael Blake": {
+        "votes": 3404,
+        "percentage": 0.47
+      },
+      "Whitney R. Tilson": {
+        "votes": 3901,
+        "percentage": 0.54
+      },
+      "Jessica Ramos": {
+        "votes": 3337,
+        "percentage": 0.46
+      },
+      "Selma K. Bartholomew": {
+        "votes": 1173,
+        "percentage": 0.16
+      },
+      "Paperboy Love Prince": {
+        "votes": 1129,
+        "percentage": 0.16
+      }
+    },
+    "profiles": {
+      "Zohran Kwame Mamdani": {
+        "profile_candidate": "Zohran Kwame Mamdani",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": true,
+        "margin": 171796,
+        "margin_percentage": 23.7,
+        "margin_opponent": "Andrew M. Cuomo",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 443015,
+            "percentage": 61.12
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 271219,
+            "percentage": 37.42
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 80066,
+            "percentage": 11.05
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 55892,
+            "percentage": 7.71
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 27512,
+            "percentage": 3.8
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 20313,
+            "percentage": 2.8
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 9369,
+            "percentage": 1.29
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 8923,
+            "percentage": 1.23
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 6493,
+            "percentage": 0.9
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 3475,
+            "percentage": 0.48
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 2092,
+            "percentage": 0.29
+          }
+        ]
+      },
+      "Andrew M. Cuomo": {
+        "profile_candidate": "Andrew M. Cuomo",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -9798,
+        "margin_percentage": -1.35,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 339238,
+            "percentage": 46.8
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 329440,
+            "percentage": 45.45
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 75598,
+            "percentage": 10.43
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 44948,
+            "percentage": 6.2
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 21470,
+            "percentage": 2.96
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 15172,
+            "percentage": 2.09
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 7813,
+            "percentage": 1.08
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 7174,
+            "percentage": 0.99
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 6652,
+            "percentage": 0.92
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 3905,
+            "percentage": 0.54
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 2193,
+            "percentage": 0.3
+          }
+        ]
+      },
+      "Brad Lander": {
+        "profile_candidate": "Brad Lander",
+        "winner": "Brad Lander",
+        "wins_own_profile": true,
+        "margin": 56938,
+        "margin_percentage": 7.86,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Brad Lander",
+            "votes": 406794,
+            "percentage": 56.12
+          },
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 349856,
+            "percentage": 48.27
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 275512,
+            "percentage": 38.01
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 76668,
+            "percentage": 10.58
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 36873,
+            "percentage": 5.09
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 25391,
+            "percentage": 3.5
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 19649,
+            "percentage": 2.71
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 14518,
+            "percentage": 2.0
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 9010,
+            "percentage": 1.24
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 4479,
+            "percentage": 0.62
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 3624,
+            "percentage": 0.5
+          }
+        ]
+      },
+      "Adrienne E. Adams": {
+        "profile_candidate": "Adrienne E. Adams",
+        "winner": "Adrienne E. Adams",
+        "wins_own_profile": true,
+        "margin": 24240,
+        "margin_percentage": 3.34,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 394702,
+            "percentage": 54.45
+          },
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 370462,
+            "percentage": 51.11
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 276003,
+            "percentage": 38.08
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 263587,
+            "percentage": 36.36
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 82328,
+            "percentage": 11.36
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 47756,
+            "percentage": 6.59
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 42545,
+            "percentage": 5.87
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 17106,
+            "percentage": 2.36
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 9966,
+            "percentage": 1.37
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 8220,
+            "percentage": 1.13
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 4930,
+            "percentage": 0.68
+          }
+        ]
+      },
+      "Scott M. Stringer": {
+        "profile_candidate": "Scott M. Stringer",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -163190,
+        "margin_percentage": -22.51,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 362890,
+            "percentage": 50.06
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 278266,
+            "percentage": 38.39
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 199700,
+            "percentage": 27.55
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 145543,
+            "percentage": 20.08
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 105870,
+            "percentage": 14.61
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 45372,
+            "percentage": 6.26
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 17802,
+            "percentage": 2.46
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 16557,
+            "percentage": 2.28
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 12328,
+            "percentage": 1.7
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 6458,
+            "percentage": 0.89
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 4060,
+            "percentage": 0.56
+          }
+        ]
+      },
+      "Zellnor Myrie": {
+        "profile_candidate": "Zellnor Myrie",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -63346,
+        "margin_percentage": -8.74,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 364235,
+            "percentage": 50.25
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 300889,
+            "percentage": 41.51
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 272559,
+            "percentage": 37.6
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 255108,
+            "percentage": 35.2
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 192126,
+            "percentage": 26.51
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 51940,
+            "percentage": 7.17
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 40190,
+            "percentage": 5.54
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 15893,
+            "percentage": 2.19
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 9652,
+            "percentage": 1.33
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 8716,
+            "percentage": 1.2
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 4763,
+            "percentage": 0.66
+          }
+        ]
+      },
+      "Michael Blake": {
+        "profile_candidate": "Michael Blake",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -158702,
+        "margin_percentage": -21.89,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 351458,
+            "percentage": 48.49
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 271341,
+            "percentage": 37.43
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 192967,
+            "percentage": 26.62
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 192756,
+            "percentage": 26.59
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 137687,
+            "percentage": 19.0
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 104435,
+            "percentage": 14.41
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 28340,
+            "percentage": 3.91
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 15702,
+            "percentage": 2.17
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 8090,
+            "percentage": 1.12
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 5765,
+            "percentage": 0.8
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 3690,
+            "percentage": 0.51
+          }
+        ]
+      },
+      "Whitney R. Tilson": {
+        "profile_candidate": "Whitney R. Tilson",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -285924,
+        "margin_percentage": -39.45,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 337601,
+            "percentage": 46.58
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 269090,
+            "percentage": 37.12
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 75425,
+            "percentage": 10.41
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 51677,
+            "percentage": 7.13
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 44375,
+            "percentage": 6.12
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 20745,
+            "percentage": 2.86
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 15473,
+            "percentage": 2.13
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 13075,
+            "percentage": 1.8
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 7018,
+            "percentage": 0.97
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 5612,
+            "percentage": 0.77
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 2853,
+            "percentage": 0.39
+          }
+        ]
+      },
+      "Jessica Ramos": {
+        "profile_candidate": "Jessica Ramos",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -242856,
+        "margin_percentage": -33.5,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 347080,
+            "percentage": 47.88
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 273134,
+            "percentage": 37.68
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 105007,
+            "percentage": 14.49
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 104224,
+            "percentage": 14.38
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 68151,
+            "percentage": 9.4
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 33278,
+            "percentage": 4.59
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 30006,
+            "percentage": 4.14
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 13080,
+            "percentage": 1.8
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 9182,
+            "percentage": 1.27
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 8659,
+            "percentage": 1.19
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 4451,
+            "percentage": 0.61
+          }
+        ]
+      },
+      "Selma K. Bartholomew": {
+        "profile_candidate": "Selma K. Bartholomew",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -292898,
+        "margin_percentage": -40.41,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 338350,
+            "percentage": 46.68
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 268944,
+            "percentage": 37.1
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 77745,
+            "percentage": 10.73
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 45452,
+            "percentage": 6.27
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 44328,
+            "percentage": 6.12
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 21561,
+            "percentage": 2.97
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 14394,
+            "percentage": 1.99
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 12930,
+            "percentage": 1.78
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 9013,
+            "percentage": 1.24
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 6965,
+            "percentage": 0.96
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 3473,
+            "percentage": 0.48
+          }
+        ]
+      },
+      "Paperboy Love Prince": {
+        "profile_candidate": "Paperboy Love Prince",
+        "winner": "Zohran Kwame Mamdani",
+        "wins_own_profile": false,
+        "margin": -293664,
+        "margin_percentage": -40.51,
+        "margin_opponent": "Zohran Kwame Mamdani",
+        "approval_votes": [
+          {
+            "candidate": "Zohran Kwame Mamdani",
+            "votes": 337313,
+            "percentage": 46.54
+          },
+          {
+            "candidate": "Andrew M. Cuomo",
+            "votes": 267879,
+            "percentage": 36.96
+          },
+          {
+            "candidate": "Brad Lander",
+            "votes": 87326,
+            "percentage": 12.05
+          },
+          {
+            "candidate": "Adrienne E. Adams",
+            "votes": 48206,
+            "percentage": 6.65
+          },
+          {
+            "candidate": "Paperboy Love Prince",
+            "votes": 43649,
+            "percentage": 6.02
+          },
+          {
+            "candidate": "Zellnor Myrie",
+            "votes": 20398,
+            "percentage": 2.81
+          },
+          {
+            "candidate": "Scott M. Stringer",
+            "votes": 18218,
+            "percentage": 2.51
+          },
+          {
+            "candidate": "Michael Blake",
+            "votes": 10644,
+            "percentage": 1.47
+          },
+          {
+            "candidate": "Jessica Ramos",
+            "votes": 10067,
+            "percentage": 1.39
+          },
+          {
+            "candidate": "Whitney R. Tilson",
+            "votes": 6749,
+            "percentage": 0.93
+          },
+          {
+            "candidate": "Selma K. Bartholomew",
+            "votes": 4130,
+            "percentage": 0.57
+          }
+        ]
+      }
+    }
+  }
+}

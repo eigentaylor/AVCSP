@@ -1,0 +1,71 @@
+{
+    "elections": {
+        "alaska_2022": {
+            "name": "Alaska 2022 Special General Election",
+            "date": "2022-08-16",
+            "data_file": "alaska_2022_ballots_named.csv",
+            "description": "US House special election to fill the seat vacated by Don Young",
+            "major_candidates": [
+                "Peltola, Mary S.",
+                "Begich, Nick",
+                "Palin, Sarah"
+            ],
+            "irv_winner": "Peltola, Mary S.",
+            "write_in_markers": [
+                "Write-in",
+                "Write-In",
+                "WRITE-IN",
+                "write-in"
+            ],
+            "max_rankings": 3
+        },
+        "mn_ward2_2021": {
+            "name": "Minneapolis Ward 2 City Council 2021",
+            "date": "2021-11-02",
+            "data_file": "mn_ward2_2021_ballots_named.csv",
+            "description": "Minneapolis City Council Ward 2 election",
+            "major_candidates": [
+                "Robin Wonsley Worlobah",
+                "Cam Gordon",
+                "Yusra Arab",
+                "Tom Anderson",
+                "Guy T Gaskin"
+            ],
+            "irv_winner": "Robin Wonsley Worlobah",
+            "write_in_markers": [
+                "Write-in",
+                "Write-In",
+                "WRITE-IN",
+                "write-in"
+            ],
+            "max_rankings": 3
+        },
+        "nyc_2025_mayor": {
+            "name": "New York City 2025 Democratic Mayoral Primary",
+            "date": "2025-06-24",
+            "data_file": "nyc_2025_mayor_ballots_named_v2.csv",
+            "description": "NYC Democratic primary for Mayor",
+            "major_candidates": [
+                "Zohran Kwame Mamdani",
+                "Andrew M. Cuomo",
+                "Brad Lander",
+                "Adrienne E. Adams",
+                "Scott M. Stringer",
+                "Zellnor Myrie",
+                "Michael Blake",
+                "Whitney R. Tilson",
+                "Jessica Ramos",
+                "Selma K. Bartholomew",
+                "Paperboy Love Prince"
+            ],
+            "irv_winner": "Zohran Kwame Mamdani",
+            "write_in_markers": [
+                "Write-in",
+                "Write-In",
+                "WRITE-IN",
+                "write-in"
+            ],
+            "max_rankings": 5
+        }
+    }
+}

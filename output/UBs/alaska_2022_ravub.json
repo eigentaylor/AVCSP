@@ -1,0 +1,115 @@
+{
+  "election_id": "alaska_2022",
+  "election_name": "Alaska 2022 Special General Election",
+  "date": "2022-08-16",
+  "description": "US House special election to fill the seat vacated by Don Young",
+  "method": "Ranked AV Upper Bound (RAVUB)",
+  "total_ballots": 192289,
+  "valid_ballots": 189453,
+  "empty_ballots": 2836,
+  "irv_winner": "Peltola, Mary S.",
+  "ballot_stats": {
+    "total_ballots": 192289,
+    "valid_ballots": 189453,
+    "empty_ballots": 2836,
+    "overvotes_corrected": 48,
+    "undervotes": 0,
+    "write_ins_encountered": 54
+  },
+  "major_candidates": [
+    "Peltola, Mary S.",
+    "Begich, Nick",
+    "Palin, Sarah"
+  ],
+  "first_choice_counts": {
+    "Peltola, Mary S.": {
+      "votes": 74867,
+      "percentage": 38.93
+    },
+    "Begich, Nick": {
+      "votes": 52844,
+      "percentage": 27.48
+    },
+    "Palin, Sarah": {
+      "votes": 58620,
+      "percentage": 30.49
+    }
+  },
+  "profiles": {
+    "Peltola, Mary S.": {
+      "profile_candidate": "Peltola, Mary S.",
+      "winner": "Peltola, Mary S.",
+      "wins_own_profile": true,
+      "margin": 36361,
+      "margin_percentage": 18.91,
+      "margin_opponent": "Palin, Sarah",
+      "approval_votes": [
+        {
+          "candidate": "Peltola, Mary S.",
+          "votes": 95051,
+          "percentage": 49.43
+        },
+        {
+          "candidate": "Palin, Sarah",
+          "votes": 58690,
+          "percentage": 30.52
+        },
+        {
+          "candidate": "Begich, Nick",
+          "votes": 53260,
+          "percentage": 27.7
+        }
+      ]
+    },
+    "Begich, Nick": {
+      "profile_candidate": "Begich, Nick",
+      "winner": "Begich, Nick",
+      "wins_own_profile": true,
+      "margin": 59957,
+      "margin_percentage": 31.18,
+      "margin_opponent": "Peltola, Mary S.",
+      "approval_votes": [
+        {
+          "candidate": "Begich, Nick",
+          "votes": 135457,
+          "percentage": 70.44
+        },
+        {
+          "candidate": "Peltola, Mary S.",
+          "votes": 75500,
+          "percentage": 39.26
+        },
+        {
+          "candidate": "Palin, Sarah",
+          "votes": 58873,
+          "percentage": 30.62
+        }
+      ]
+    },
+    "Palin, Sarah": {
+      "profile_candidate": "Palin, Sarah",
+      "winner": "Palin, Sarah",
+      "wins_own_profile": true,
+      "margin": 15776,
+      "margin_percentage": 8.2,
+      "margin_opponent": "Peltola, Mary S.",
+      "approval_votes": [
+        {
+          "candidate": "Palin, Sarah",
+          "votes": 90773,
+          "percentage": 47.21
+        },
+        {
+          "candidate": "Peltola, Mary S.",
+          "votes": 74997,
+          "percentage": 39.0
+        },
+        {
+          "candidate": "Begich, Nick",
+          "votes": 53253,
+          "percentage": 27.69
+        }
+      ]
+    }
+  }
+}

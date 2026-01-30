@@ -1,0 +1,225 @@
+{
+  "election_id": "mn_ward2_2021",
+  "election_name": "Minneapolis Ward 2 City Council 2021",
+  "date": "2021-11-02",
+  "description": "Minneapolis City Council Ward 2 election",
+  "method": "Ranked AV Upper Bound (RAVUB)",
+  "total_ballots": 9799,
+  "valid_ballots": 9531,
+  "empty_ballots": 268,
+  "irv_winner": "Robin Wonsley Worlobah",
+  "ballot_stats": {
+    "total_ballots": 9799,
+    "valid_ballots": 9531,
+    "empty_ballots": 268,
+    "overvotes_corrected": 54,
+    "undervotes": 0,
+    "write_ins_encountered": 0
+  },
+  "major_candidates": [
+    "Robin Wonsley Worlobah",
+    "Cam Gordon",
+    "Yusra Arab",
+    "Tom Anderson",
+    "Guy T Gaskin"
+  ],
+  "first_choice_counts": {
+    "Robin Wonsley Worlobah": {
+      "votes": 2761,
+      "percentage": 28.18
+    },
+    "Cam Gordon": {
+      "votes": 2507,
+      "percentage": 25.58
+    },
+    "Yusra Arab": {
+      "votes": 2716,
+      "percentage": 27.72
+    },
+    "Tom Anderson": {
+      "votes": 980,
+      "percentage": 10.0
+    },
+    "Guy T Gaskin": {
+      "votes": 546,
+      "percentage": 5.57
+    }
+  },
+  "profiles": {
+    "Robin Wonsley Worlobah": {
+      "profile_candidate": "Robin Wonsley Worlobah",
+      "winner": "Robin Wonsley Worlobah",
+      "wins_own_profile": true,
+      "margin": 2149,
+      "margin_percentage": 21.93,
+      "margin_opponent": "Yusra Arab",
+      "approval_votes": [
+        {
+          "candidate": "Robin Wonsley Worlobah",
+          "votes": 5150,
+          "percentage": 52.56
+        },
+        {
+          "candidate": "Yusra Arab",
+          "votes": 3001,
+          "percentage": 30.63
+        },
+        {
+          "candidate": "Cam Gordon",
+          "votes": 2672,
+          "percentage": 27.27
+        },
+        {
+          "candidate": "Tom Anderson",
+          "votes": 1264,
+          "percentage": 12.9
+        },
+        {
+          "candidate": "Guy T Gaskin",
+          "votes": 554,
+          "percentage": 5.65
+        }
+      ]
+    },
+    "Cam Gordon": {
+      "profile_candidate": "Cam Gordon",
+      "winner": "Cam Gordon",
+      "wins_own_profile": true,
+      "margin": 2341,
+      "margin_percentage": 23.89,
+      "margin_opponent": "Yusra Arab",
+      "approval_votes": [
+        {
+          "candidate": "Cam Gordon",
+          "votes": 5509,
+          "percentage": 56.22
+        },
+        {
+          "candidate": "Yusra Arab",
+          "votes": 3168,
+          "percentage": 32.33
+        },
+        {
+          "candidate": "Robin Wonsley Worlobah",
+          "votes": 2951,
+          "percentage": 30.12
+        },
+        {
+          "candidate": "Tom Anderson",
+          "votes": 1304,
+          "percentage": 13.31
+        },
+        {
+          "candidate": "Guy T Gaskin",
+          "votes": 574,
+          "percentage": 5.86
+        }
+      ]
+    },
+    "Yusra Arab": {
+      "profile_candidate": "Yusra Arab",
+      "winner": "Yusra Arab",
+      "wins_own_profile": true,
+      "margin": 2768,
+      "margin_percentage": 28.25,
+      "margin_opponent": "Robin Wonsley Worlobah",
+      "approval_votes": [
+        {
+          "candidate": "Yusra Arab",
+          "votes": 5906,
+          "percentage": 60.27
+        },
+        {
+          "candidate": "Robin Wonsley Worlobah",
+          "votes": 3138,
+          "percentage": 32.02
+        },
+        {
+          "candidate": "Cam Gordon",
+          "votes": 3019,
+          "percentage": 30.81
+        },
+        {
+          "candidate": "Tom Anderson",
+          "votes": 1222,
+          "percentage": 12.47
+        },
+        {
+          "candidate": "Guy T Gaskin",
+          "votes": 565,
+          "percentage": 5.77
+        }
+      ]
+    },
+    "Tom Anderson": {
+      "profile_candidate": "Tom Anderson",
+      "winner": "Tom Anderson",
+      "wins_own_profile": true,
+      "margin": 357,
+      "margin_percentage": 3.64,
+      "margin_opponent": "Yusra Arab",
+      "approval_votes": [
+        {
+          "candidate": "Tom Anderson",
+          "votes": 3633,
+          "percentage": 37.08
+        },
+        {
+          "candidate": "Yusra Arab",
+          "votes": 3276,
+          "percentage": 33.43
+        },
+        {
+          "candidate": "Robin Wonsley Worlobah",
+          "votes": 3093,
+          "percentage": 31.56
+        },
+        {
+          "candidate": "Cam Gordon",
+          "votes": 2809,
+          "percentage": 28.67
+        },
+        {
+          "candidate": "Guy T Gaskin",
+          "votes": 584,
+          "percentage": 5.96
+        }
+      ]
+    },
+    "Guy T Gaskin": {
+      "profile_candidate": "Guy T Gaskin",
+      "winner": "Robin Wonsley Worlobah",
+      "wins_own_profile": false,
+      "margin": -1900,
+      "margin_percentage": -19.39,
+      "margin_opponent": "Robin Wonsley Worlobah",
+      "approval_votes": [
+        {
+          "candidate": "Robin Wonsley Worlobah",
+          "votes": 2775,
+          "percentage": 28.32
+        },
+        {
+          "candidate": "Yusra Arab",
+          "votes": 2758,
+          "percentage": 28.15
+        },
+        {
+          "candidate": "Cam Gordon",
+          "votes": 2529,
+          "percentage": 25.81
+        },
+        {
+          "candidate": "Tom Anderson",
+          "votes": 1046,
+          "percentage": 10.67
+        },
+        {
+          "candidate": "Guy T Gaskin",
+          "votes": 875,
+          "percentage": 8.93
+        }
+      ]
+    }
+  }
+}
