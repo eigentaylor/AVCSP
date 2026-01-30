@@ -1,6 +1,7 @@
 {
     "elections": {
         "alaska_2022": {
+            "enabled": true,
             "name": "Alaska 2022 Special General Election",
             "date": "2022-08-16",
             "data_file": "alaska_2022_ballots_named.csv",
@@ -20,6 +21,7 @@
             "max_rankings": 3
         },
         "mn_ward2_2021": {
+            "enabled": true,
             "name": "Minneapolis Ward 2 City Council 2021",
             "date": "2021-11-02",
             "data_file": "mn_ward2_2021_ballots_named.csv",
@@ -41,6 +43,7 @@
             "max_rankings": 3
         },
         "nyc_2025_mayor": {
+            "enabled": false,
             "name": "New York City 2025 Democratic Mayoral Primary",
             "date": "2025-06-24",
             "data_file": "nyc_2025_mayor_ballots_named_v2.csv",

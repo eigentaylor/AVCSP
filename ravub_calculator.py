@@ -356,7 +356,12 @@ class RAVUBCalculator:
         """Analyze all elections defined in the config."""
         all_results = {}
         
-        for election_id in self.config["elections"]:
+        for election_id, election_config in self.config["elections"].items():
+            # Skip disabled elections
+            if not election_config.get("enabled", True):
+                print(f"Skipping {election_id} (disabled)...")
+                continue
+            
             print(f"Analyzing {election_id}...")
             all_results[election_id] = self.analyze_election(election_id)
         

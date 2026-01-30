@@ -510,7 +510,7 @@
         <footer>
             <p>Data and analysis by <a href="https://github.com/eigentaylor">eigentaylor</a></p>
             <p>Based on Steven Brams' <em>Mathematics and Democracy</em> (2008)</p>
-            <p>Errors very likely. Take results with a haelthy grain of salt.</p>
+            <p>Errors very likely. Take results with a healthy grain of salt.</p>
         </footer>
     </div>
 
@@ -613,7 +613,7 @@
             const election = allData[electionId];
             const candidates = election.major_candidates;
             const firstChoiceCounts = election.first_choice_counts || {};
-            
+
             // Collect candidate data and sort by RAVUB (maximum) descending
             const candidateData = candidates.map(candidate => {
                 const profile = election.profiles[candidate];
@@ -622,7 +622,7 @@
                 const ravub = ravubVotes ? ravubVotes.votes : 0;
                 const ravubPct = ravubVotes ? ravubVotes.percentage : 0;
                 const winsProfile = profile ? profile.wins_own_profile : false;
-                
+
                 return {
                     candidate,
                     firstChoice,
@@ -631,14 +631,14 @@
                     winsProfile
                 };
             }).sort((a, b) => b.ravub - a.ravub);
-            
+
             // Calculate max RAVUB for scaling the bars
             const maxRavub = candidateData.length > 0 ? candidateData[0].ravub : 0;
 
             const rows = candidateData.map((data, i) => {
                 const { candidate, firstChoice, ravub, ravubPct, winsProfile } = data;
                 const barColor = barColors[i % barColors.length];
-                
+
                 // Calculate bar positions (as percentage of max RAVUB)
                 const minBarWidth = (firstChoice.votes / maxRavub) * 100;
                 const maxBarWidth = (ravub / maxRavub) * 100;
@@ -714,9 +714,9 @@
                 return `
                     <tr class="${isWinner ? 'winner-row' : ''}">
                         <td>
-                            ${isWinner ? '👑 ' : ''}${isMajorCandidate 
-                                ? `<span class="clickable-candidate" onclick="selectCandidate('${v.candidate.replace(/'/g, "\\'")}')">${v.candidate}</span>`
-                                : v.candidate}
+                            ${isWinner ? '👑 ' : ''}${isMajorCandidate
+                        ? `<span class="clickable-candidate" onclick="selectCandidate('${v.candidate.replace(/'/g, "\\'")}')">${v.candidate}</span>`
+                        : v.candidate}
                         </td>
                         <td>${formatNumber(v.votes)}</td>
                         <td>${v.percentage.toFixed(2)}%</td>
